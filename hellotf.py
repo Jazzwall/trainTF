@@ -45,3 +45,4 @@ tfprod = tf.multiply(tf.cast(tfint, tf.float32), tffloat)
 with tf.Session() as sess:
     tfoutput = sess.run(tfprod)
     print(tfoutput)
+
