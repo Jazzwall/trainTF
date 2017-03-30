@@ -30,3 +30,18 @@ with tf.Session() as sess:
     sumoutput = sess.run(sum, feed_dict={y:4, z:9})
     print (output)
     print(sumoutput)
+
+
+#TF math is different from regular math
+tfsum = tf.add(y,z)
+with tf.Session() as sess:
+    tfoutput = sess.run(tfsum, feed_dict={z: 55, y: 100})
+    print(tfoutput)
+
+#TF type conversion can be necessary
+tfint = tf.constant(4)
+tffloat = tf.constant(55.5)
+tfprod = tf.multiply(tf.cast(tfint, tf.float32), tffloat)
+with tf.Session() as sess:
+    tfoutput = sess.run(tfprod)
+    print(tfoutput)
