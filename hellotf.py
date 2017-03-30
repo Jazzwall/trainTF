@@ -1,5 +1,7 @@
 import tensorflow as tf
 
+
+#TF constants
 hello_constant = tf.constant('Hello World')
 A = tf.constant(1234)
 AA = tf.constant(1111)
@@ -14,3 +16,17 @@ with tf.Session() as sess:
     print (numoutput)
     matoutput = sess.run(D)
     print(D)
+
+#TF placeholders
+#allows for setting input right before the session runs
+#values provided as a dictionary to the session run method
+
+x = tf.placeholder(tf.string) #setting datatype but not value
+y = tf.placeholder(tf.int32)
+z = tf.placeholder(tf.int32)
+sum = y+z
+with tf.Session() as sess:
+    output = sess.run(x, feed_dict={x: 'Hello dictionary value'})
+    sumoutput = sess.run(sum, feed_dict={y:4, z:9})
+    print (output)
+    print(sumoutput)
